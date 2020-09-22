@@ -1,35 +1,16 @@
-const title = document.querySelector("#title");
-
-const CLICKED_COLOR = "clicked";
-
-function handleClick() {
-  title.classList.toggle(CLICKED_COLOR);
+function initMap() {
+  const myLatLng = {
+    lat: 37.782293,
+    lng: -122.39124,
+  };
+  const map = new google.maps.Map(document.getElementById("map"), {
+    center: myLatLng,
+    scrollwheel: false,
+    zoom: 18,
+  });
+  const marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: "GitHub",
+  });
 }
-/* const BASE_COLOR = "rgb(52, 73, 94)";
-const OTHER_COLOR = "#7f8c8d";
-
-function handleClick() {
-  const currentColor = title.style.color;
-  if (currentColor === BASE_COLOR) {
-    title.style.color = OTHER_COLOR;
-  } else {
-    title.style.color = BASE_COLOR;
-  }
-} */
-
-function init() {
-  title.addEventListener("click", handleClick);
-}
-
-init();
-
-/* function handleOffline() {
-  title.innerHTML = "Connect wifi";
-}
-function handleOnline() {
-  title.innerHTML = "Welcome back!";
-} */
-/* 
-window.addEventListener("offline", handleOffline);
-window.addEventListener("online", handleOnline);
- */
